@@ -21,7 +21,7 @@ logging.basicConfig(filename="myapp.log",format='%(asctime)s %(levelname)s %(nam
 service = [
     {
         'servic': f"{app.name}",
-        'version': "{}".format(VERSION),
+        'version': "{}".format(version),
          'git sha': "{}".format(sha_id)
     },
     {
