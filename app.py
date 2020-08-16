@@ -6,13 +6,13 @@ import git
 import os
 port = os.environ.get('PORT')
 version = os.environ.get('VERSION')
+debug = os.debug.get('DEBUG')
 # Flask constructor takes the name of current module (__name__) as argument.
 app = Flask(__name__)
 #Initializing object of logging.logger
 applog = logging.getLogger(__name__)
 git_repo = git.Repo(search_parent_directories=True)
 sha_id = git_repo.head.object.hexsha
-print(type(applog))
 #Setting the log level as INFO
 applog.setLevel(logging.INFO)
 
@@ -20,7 +20,7 @@ applog.setLevel(logging.INFO)
 logging.basicConfig(filename="myapp.log",format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 service = [
     {
-        'servic': f"{app.name}",
+        'service': "{}".format(app.name),
         'version': "{}".format(version),
          'git sha': "{}".format(sha_id)
     },
@@ -39,4 +39,4 @@ def get_myapp_info():
     app.logger.info('Displaying the info logs')
     return jsonify({'service': service},200)
 
-app.run(host='0.0.0.0', port="{}".format(port))
+app.run(host='0.0.0.0', port="{}".format(port),debug="{}".format(debug))
