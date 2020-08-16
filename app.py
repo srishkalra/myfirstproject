@@ -1,4 +1,4 @@
-# Importing flask module in the project
+# Importing flask module in the projec
 # An object of Flask class is our WSGI application
 from flask import Flask,jsonify
 import logging
