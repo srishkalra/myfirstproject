@@ -6,7 +6,7 @@ import git
 import os
 port = os.environ.get('PORT')
 version = os.environ.get('VERSION')
-debug = os.debug.get('DEBUG')
+debug = os.environ.get('DEBUG')
 # Flask constructor takes the name of current module (__name__) as argument.
 app = Flask(__name__)
 #Initializing object of logging.logger
